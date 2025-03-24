@@ -1,23 +1,24 @@
 {
-  "name": "in-stock-app",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node server/index.js",
-    "build": "react-scripts build",
-    "heroku-postbuild": "npm install && npm run build"
-  },
-  "dependencies": {
-    "cors": "2.8.5",
-    "express": "4.18.2",
-    "mysql2": "3.9.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "4.9.5"
-  },
-  "engines": {
-    "node": "22.x",
-    "npm": "10.x"
+    "name": "instock-webapp",
+    "version": "1.0.0",
+    "description": "Inventory management web application",
+    "engines": {
+      "node": "18.x",
+      "npm": "9.x"
+    },
+    "scripts": {
+      "start": "node in-stock-app/index.js",
+      "build": "cd client && npm install && npm run build",
+      "heroku-postbuild": "npm run build",
+      "dev": "concurrently \"cd client && npm start\" \"cd in-stock-app/ && npm run dev\"",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "mysql2": "^3.9.7",
+      "cors": "^2.8.5"
+    },
+    "devDependencies": {
+      "concurrently": "^8.2.2"
+    }
   }
-}
