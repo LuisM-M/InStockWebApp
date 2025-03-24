@@ -8,7 +8,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const result = await axios.post('http://localhost:5000/api/deepseek', {
+      const result = await axios.post('http://localhost:5001/api/deepseek', {
         text: inputText,
       });
       setResponse(result.data.response);

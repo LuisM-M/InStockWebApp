@@ -1,5 +1,5 @@
 const express = require('express');
-const { callDeepSeekAPI } = require('../controllers/deepseek'); // Import the controller
+const { callDeepSeekAPI } = require('../controllers/deepseek');
 
 const router = express.Router();
 
