@@ -2,16 +2,16 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-// Your existing API routes
+// API Routes
 app.use('/api', require('./routes/api'));
 
-// Serve static files from React build
-app.use(express.static(path.join(__dirname, '../build')));
-
-// Handle React routing (return all requests to React app)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
-});
+// Serve React in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
