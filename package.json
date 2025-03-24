@@ -7,10 +7,10 @@
       "npm": "9.x"
     },
     "scripts": {
-      "start": "node in-stock-app/index.js",
+      "start": "node in-stock-app/server/index.js",
       "build": "cd client && npm install && npm run build",
       "heroku-postbuild": "npm run build",
-      "dev": "concurrently \"cd client && npm start\" \"cd in-stock-app/ && npm run dev\"",
+      "dev": "concurrently \"cd client && npm start\" \"cd in-stock-app/server && npm run dev\"",
       "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
